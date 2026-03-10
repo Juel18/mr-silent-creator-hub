@@ -1,14 +1,29 @@
+const API_KEY="AIzaSyAEBSwFQQHGdg7EdKTWXaBvl6b6cOhFpXc"
 const CHANNEL_ID="UCKQ_q75TKeAcYXYeu0uaWlQ"
 
 const videosDiv=document.getElementById("videos")
-const search=document.getElementById("search")
+const subs=document.getElementById("subs")
 
 let videos=[]
 
-fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`)
 
+// load subscriber count
+
+fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`)
 .then(res=>res.json())
+.then(data=>{
 
+if(subs){
+subs.innerText=data.items[0].statistics.subscriberCount
+}
+
+})
+
+
+// load videos
+
+fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`)
+.then(res=>res.json())
 .then(data=>{
 
 videos=data.items
@@ -24,42 +39,28 @@ if(!videosDiv) return
 
 videosDiv.innerHTML=""
 
-list.forEach(video=>{
+list.forEach(v=>{
 
-const videoId=video.link.split("v=")[1]
+if(v.id.videoId){
+
+const id=v.id.videoId
 
 const div=document.createElement("div")
 
 div.className="video"
 
 div.innerHTML=`
-<img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg">
-<p>${video.title}</p>
+<img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg">
+<p>${v.snippet.title}</p>
 `
 
 div.onclick=()=>{
-window.location=`watch.html?id=${videoId}`
+window.location=`watch.html?id=${id}`
 }
 
 videosDiv.appendChild(div)
 
-})
-
 }
-
-
-
-if(search){
-
-search.addEventListener("input",e=>{
-
-const q=e.target.value.toLowerCase()
-
-const filtered=videos.filter(v=>
-v.title.toLowerCase().includes(q)
-)
-
-display(filtered)
 
 })
 
