@@ -7,6 +7,29 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+<style>
+
+.shorts-container{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:40px;
+}
+
+.short{
+width:350px;
+height:620px;
+border-radius:15px;
+overflow:hidden;
+}
+
+.short iframe{
+width:100%;
+height:100%;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -15,13 +38,13 @@
 
 <h2>📱 Shorts</h2>
 
-<a
-href="https://youtube.com/@mrsilentofficial/shorts"
-target="_blank">
+<div class="shorts-container">
 
-Open Shorts
+<div class="short">
+<iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID"></iframe>
+</div>
 
-</a>
+</div>
 
 </div>
 
