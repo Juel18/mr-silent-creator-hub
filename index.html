@@ -4,32 +4,32 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Mr. Si!ent Gaming Hub</title>
 
 <link rel="stylesheet" href="style.css">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+
 </head>
 
 <body>
 
-<div id="particles"></div>
+<div id="three-bg"></div>
 
 <header>
 
 <h1>MR. SI!ENT</h1>
-<p>Minecraft • ARK • Roblox</p>
 
 <div class="stats">
-<span id="subs">Subscribers: ...</span>
-<span id="views">Views: ...</span>
+Subscribers: <span id="subs">0</span>
 </div>
 
-<input type="text" id="search" placeholder="Search videos...">
+<input type="text" id="search" placeholder="Search videos">
 
 </header>
-
 
 <section>
 
@@ -49,7 +49,16 @@ allowfullscreen>
 
 <section>
 
-<h2>🎬 VIDEOS</h2>
+<h2>🔥 TRENDING VIDEOS</h2>
+
+<div id="trending" class="grid"></div>
+
+</section>
+
+
+<section>
+
+<h2>🎬 LATEST VIDEOS</h2>
 
 <div id="videos" class="grid"></div>
 
@@ -58,11 +67,37 @@ allowfullscreen>
 
 <section>
 
-<h2>📂 PLAYLISTS</h2>
+<h2>🧊 Minecraft Blocks</h2>
 
-<div id="playlists" class="grid"></div>
+<div id="minecraft3d"></div>
 
 </section>
+
+
+<section>
+
+<h2>🎮 Roblox Avatar</h2>
+
+<div id="roblox3d"></div>
+
+</section>
+
+
+<section>
+
+<h2>🐉 ARK Dinosaur</h2>
+
+<div id="ark3d"></div>
+
+</section>
+
+
+<div id="playerModal" class="modal">
+<div class="modal-content">
+<span id="closePlayer">✖</span>
+<iframe id="videoPlayer" allowfullscreen></iframe>
+</div>
+</div>
 
 
 <footer>
