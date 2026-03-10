@@ -8,48 +8,41 @@
 
 <title>Mr. Si!ent Gaming Hub</title>
 
-<link rel="stylesheet" href="style.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<div id="three-bg"></div>
-
 <header>
 
-<h1>MR. SI!ENT</h1>
+<h1>🎮 MR. SI!ENT</h1>
 
 <div class="stats">
-Subscribers: <span id="subs">0</span>
+Subscribers: <span id="subs">Loading...</span>
 </div>
 
-<input type="text" id="search" placeholder="Search videos">
+<input id="search" placeholder="Search videos">
 
 </header>
 
+
 <section>
 
-<h2>🔴 LIVE STREAM</h2>
-
-<div class="live">
+<h2>🔴 Live Stream</h2>
 
 <iframe
-src="https://www.youtube.com/embed/live_stream?channel=UCKQ_q75TKeAcYXYeu0uaWlQ"
-allowfullscreen>
+width="100%"
+height="420"
+src="https://www.youtube.com/embed/live_stream?channel=UCKQ_q75TKeAcYXYeu0uaWlQ">
 </iframe>
-
-</div>
 
 </section>
 
 
 <section>
 
-<h2>🔥 TRENDING VIDEOS</h2>
+<h2>🔥 Trending</h2>
 
 <div id="trending" class="grid"></div>
 
@@ -58,55 +51,27 @@ allowfullscreen>
 
 <section>
 
-<h2>🎬 LATEST VIDEOS</h2>
+<h2>🎬 Latest Videos</h2>
 
 <div id="videos" class="grid"></div>
 
 </section>
 
 
-<section>
-
-<h2>🧊 Minecraft Blocks</h2>
-
-<div id="minecraft3d"></div>
-
-</section>
-
-
-<section>
-
-<h2>🎮 Roblox Avatar</h2>
-
-<div id="roblox3d"></div>
-
-</section>
-
-
-<section>
-
-<h2>🐉 ARK Dinosaur</h2>
-
-<div id="ark3d"></div>
-
-</section>
-
-
 <div id="playerModal" class="modal">
+
 <div class="modal-content">
-<span id="closePlayer">✖</span>
-<iframe id="videoPlayer" allowfullscreen></iframe>
+
+<span id="close">✖</span>
+
+<iframe id="player" allowfullscreen></iframe>
+
 </div>
+
 </div>
 
 
-<footer>
-
-<p>© Mr. Si!ent Gaming</p>
-
-</footer>
-
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 
