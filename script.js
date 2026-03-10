@@ -13,6 +13,8 @@ const subs=document.getElementById("subs")
 let videos=[]
 
 
+// subscriber count
+
 fetch(
 `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`
 )
@@ -25,6 +27,8 @@ subs.innerText=data.items[0].statistics.subscriberCount
 
 })
 
+
+// load videos
 
 fetch(
 `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`
@@ -41,6 +45,7 @@ display(videosDiv,videos)
 display(trendingDiv,videos.slice(0,6))
 
 })
+
 
 
 function display(container,list){
@@ -81,6 +86,7 @@ container.appendChild(div)
 }
 
 
+
 close.onclick=()=>{
 
 modal.style.display="none"
@@ -89,6 +95,9 @@ player.src=""
 
 }
 
+
+
+// search
 
 document.getElementById("search")
 .addEventListener("input",e=>{
